@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var pickerView:UIPickerView!
     @IBOutlet weak var lblPrice:UILabel!
     
-    var currencyArray:[String] = [
+    var baseURL = URLEndpoints.kBitcoinURL
+    
+    var currencyArray:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self
@@ -52,6 +54,7 @@ extension ViewController:UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedCurrency = currencyArray[row]
+        let currency = currencyArray[row]
+        let finalURL = baseURL + currency
     }
 }
